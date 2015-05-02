@@ -131,11 +131,29 @@ h_blue="\[\033[1;34m\]"
 h_magenta="\[\033[1;35m\]"
 h_white="\[\033[1;37m\]"
 h_reset="\[\033[1;00m\]"
+# Underlined colors
+u_black="\[\033[4;30m\]"
+u_red="\[\033[4;31m\]"
+u_green="\[\033[4;32m\]"
+u_yellow="\[\033[4;33m\]"
+u_blue="\[\033[4;34m\]"
+u_magenta="\[\033[4;35m\]"
+u_white="\[\033[4;37m\]"
+u_reset="\[\033[4;00m\]"
+# Background colors
+bg_black="\[\033[7;30m\]"
+bg_red="\[\033[7;31m\]"
+bg_green="\[\033[7;32m\]"
+bg_yellow="\[\033[7;33m\]"
+bg_blue="\[\033[7;34m\]"
+bg_magenta="\[\033[7;35m\]"
+bg_white="\[\033[7;37m\]"
+bg_reset="\[\033[7;00m\]"
 
 git_prompt ()
 {
     c_git_clean=""
-    c_git_changed="*"
+    c_git_changed=" \033[1;31m⚑\033[1;00m"
     git_status="${c_git_clean}"
 
     # Checking GIT directory
@@ -160,17 +178,15 @@ git_prompt ()
     fi
 
     # Final output
-    echo "[$git_branch$git_status]"
+    echo -e "\033[1;37m↯\033[1;30m $git_branch$git_status"
 }
 
 # Thy holy prompt.
-PS1="$reset[$magenta\t$reset] $h_green\u@\h$white:$h_blue\w $black\$(git_prompt)\n$white\$ $reset"
-PS2="$white> $reset"
+PS1="[$reset$magenta\t$reset] $h_green\u@$u_green\h$u_reset$white: $h_blue\w  $black\$(git_prompt)\n$h_white$ $reset"
+PS2="$h_white↳ $reset"
 
 clear
 
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
-
-

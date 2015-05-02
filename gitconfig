@@ -34,11 +34,11 @@
     econf  = config --global -e
     esconf = config --system -e
 [push]
-    default = matching
+    default = upstream
 [color]
     ui = true
 [credential]
-    helper = cache
+    helper = cache --timeout=3600
 [credential "https://github.com"]
     username = warang580
 [include]
