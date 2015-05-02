@@ -1,0 +1,45 @@
+[user]
+    name  = Sacha WILT
+    email = sacha.wilt@gmail.com
+[alias]
+    # Repository short status
+    st  = status -sb
+    # Same with updated remotes
+    stu = "!f() { git fetch 2> /dev/null; git s; }; f"
+
+    # Commit history/log
+    history = !git log --graph --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an> %C(red)%d%Creset' --abbrev-commit
+    # Shortcut
+    h = ! git history
+    # Short log
+    lg = log --oneline
+
+    # Commit
+    # Easy add-everything commit (ci "commit msg")
+    ci       = !git add -A && git commit -m
+    # Undo previous commit (keep changes in working dir)
+    ci-undo  = reset HEAD~1 --mixed
+    # Amend last commit (adding changes after commiting, excluding new files)
+    ci-amend = commit -a --amend
+
+    # Proper reset (save + clean) of working dir (ex: wipe "PoC not working, deleting work")
+    wipe = "!f() { git add -A && git commit -qm ${1-wipe savepoint} && git reset HEAD~1 --hard; }; f"
+
+    # Checkout
+    co = checkout
+    # Create new branch and checkout it
+    cb = checkout -b
+
+    # Configuration
+    econf  = config --global -e
+    esconf = config --system -e
+[push]
+    default = matching
+[color]
+    ui = true
+[credential]
+    helper = cache
+[credential "https://github.com"]
+    username = warang580
+[include]
+    path = ~/.gitconfig.local

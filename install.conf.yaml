@@ -2,4 +2,8 @@
 - link:
     "~/.dotfiles": ""
     "~/fonts": "fonts"
+    "~/.bash_profile": "bash_profile"
+    "~/.gitconfig": "gitconfig"
+    "~/.tmux.conf": "tmux.conf"
+    "~/.vimrc": "vimrc"
 - shell: []
