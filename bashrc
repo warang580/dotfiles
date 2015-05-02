@@ -152,8 +152,8 @@ bg_reset="\[\033[7;00m\]"
 
 git_prompt ()
 {
-    c_git_clean=""
-    c_git_changed=" \033[1;31m⚑\033[1;00m"
+    c_git_clean=" \033[1;37m↯\033[1;30m"
+    c_git_changed=" \033[1;31m⚑\033[1;30m"
     git_status="${c_git_clean}"
 
     # Checking GIT directory
@@ -178,11 +178,11 @@ git_prompt ()
     fi
 
     # Final output
-    echo -e "\033[1;37m↯\033[1;30m $git_branch$git_status"
+    echo -e "[$git_branch$git_status]"
 }
 
 # Thy holy prompt.
-PS1="[$reset$magenta\t$reset] $h_green\u@$u_green\h$u_reset$white: $h_blue\w  $black\$(git_prompt)\n$h_white$ $reset"
+PS1="$reset$h_black[$reset$magenta\t$h_black] $h_green\u@$u_green\h$u_reset$white: $h_blue\w $black\$(git_prompt)\n$h_white$ $reset"
 PS2="$h_white↳ $reset"
 
 clear
