@@ -167,10 +167,6 @@ git_prompt ()
 PS1="$reset[$magenta\t$reset] $h_green\u@\h$white:$h_blue\w $black\$(git_prompt)\n$white\$ $reset"
 PS2="$white> $reset"
 
-# "Fuck" corrector
-alias fuck='eval $(thefuck $(fc -ln -1))'
-alias FUCK='fuck'
-
 clear
 
 if [ -f ~/.bashrc.local ]; then

@@ -7,5 +7,6 @@
     "~/.gitconfig": "gitconfig"
     "~/.tmux.conf": "tmux.conf"
     "~/.bash_profile": "bash_profile"
+    "~/.bash_aliases": "bash_aliases"
     "~/.bashrc": "bashrc"
 - shell: []
