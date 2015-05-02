@@ -1,7 +1,8 @@
 - clean: ["~"]
 - link:
     "~/.dotfiles": ""
-    "~/.fonts": "fonts"
+    "~/.fonts/meslo": "fonts/meslo"
+    "~/.fonts/inconsolata": "fonts/inconsolata"
     "~/.vimrc": "vimrc"
     "~/.gitconfig": "gitconfig"
     "~/.tmux.conf": "tmux.conf"
