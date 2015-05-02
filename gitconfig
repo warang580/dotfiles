@@ -5,7 +5,7 @@
     # Repository short status
     st  = status -sb
     # Same with updated remotes
-    stu = "!f() { git fetch 2> /dev/null; git s; }; f"
+    stu = "!f() { git fetch 2> /dev/null; git st; }; f"
 
     # Commit history/log
     history = !git log --graph --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an> %C(red)%d%Creset' --abbrev-commit
