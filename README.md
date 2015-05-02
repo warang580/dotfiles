@@ -1,6 +1,6 @@
 # ~/.files
 
-This repository is a fork of [Dotbot][dotbot] [template repository][fork] with my own configuration files.
+This repository is a fork of [Dotbot][dotbot] [template repository][dotbot_template] with my own configuration files.
 
 ## Inspiration
 
@@ -14,7 +14,7 @@ Other repositories using Dotbot :
 * [bluekeys' dotfiles][bluekeys_dotfiles]
 
 [dotbot]: https://github.com/anishathalye/dotbot
-[fork]: https://github.com/anishathalye/dotfiles_template/fork
+[dotbot_template]: https://github.com/anishathalye/dotfiles_template
 [anishathalye_dotfiles]: https://github.com/anishathalye/dotfiles
 [csivanich_dotfiles]: https://github.com/csivanich/dotfiles
 [m45t3r_dotfiles]: https://github.com/m45t3r/dotfiles
