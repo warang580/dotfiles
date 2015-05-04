@@ -107,6 +107,12 @@ fi
 # Set to 256 colors
 export TERM=xterm-256color
 
+# Enable auto-cd when a directory is given
+shopt -s autocd
+
+# Handle "**" globing (recursive)
+shopt -s globstar
+
 # CD to ~ from everywhere
 CDPATH=~
 
