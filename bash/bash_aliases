@@ -19,6 +19,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# Creating directories
+mkdir='mkdir -p'
+
 # Package install
 alias install='sudo apt-get install'
 
