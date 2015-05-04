@@ -172,7 +172,7 @@ git_prompt ()
     git_head=`cat $git_dir/HEAD`
     git_branch=${git_head##*/}
     if [ ${#git_branch} -eq 40 ]; then
-        git_branch="?"
+        git_branch="(unknown)"
     fi
 
     # Git status
