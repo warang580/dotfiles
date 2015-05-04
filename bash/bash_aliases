@@ -1,41 +1,39 @@
 # File listing
-alias ll='ls -lFh'
-alias l1='ls -1h'
-alias la='ls -AlFh'
-alias l='ll'
+alias ll="ls -lFh"
+alias l1="ls -1h"
+alias la="ls -AlFh"
+alias l="ll"
 
 # Disk usage
 alias df="df -h"
 alias du="du -h"
 
 # Interactive delete
-alias rm='rm -i'
+alias rm="rm -i"
 
 # Path displaying
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Changing directories
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
 # Creating directories
-mkdir='mkdir -p'
+mkdir="mkdir -p"
 
 # Package install
-alias install='sudo apt-get install'
+alias install="sudo apt-get install"
 
 # TMUX
-alias tmuxr='tmux attach'
+alias tmuxr="tmux attach"
 
 # "Fuck" corrector
-alias fuck='eval $(thefuck $(fc -ln -1))'
-alias FUCK='fuck'
+alias fuck="eval $(thefuck $(fc -ln -1))"
+alias FUCK="fuck"
 
 # Git shortcut
-alias g='git'
+alias g="git"
 
 # Notify end of command
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-
