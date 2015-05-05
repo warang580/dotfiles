@@ -11,4 +11,4 @@
     "~/.bashrc": "bash/bashrc"
     "~/.wgetrc": "wget/wgetrc"
 - shell:
-  - [source ~/.bashrc]
+  - source ~/.bashrc
