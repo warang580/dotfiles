@@ -10,4 +10,5 @@
     "~/.bash_aliases": "bash/bash_aliases"
     "~/.bashrc": "bash/bashrc"
     "~/.wgetrc": "wget/wgetrc"
-- shell: []
+- shell:
+  - [source ~/.bashrc]
