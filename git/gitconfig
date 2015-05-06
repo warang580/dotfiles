@@ -11,6 +11,12 @@
     # Short log
     lg = log --oneline
 
+    # Branches display
+    branches = branch -av
+
+    # Remotes display
+    remotes = remote -v
+
     # Commit
     # Easy add-everything commit (ci "commit msg")
     ci       = !git add -A && git commit -m
