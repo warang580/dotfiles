@@ -31,10 +31,6 @@ alias install="sudo apt-get install"
 # TMUX
 alias tmuxr="tmux attach"
 
-# "Fuck" corrector
-alias fuck="eval $(thefuck $(fc -ln -1))"
-alias FUCK="fuck"
-
 # Git shortcut
 alias g="git"
 
