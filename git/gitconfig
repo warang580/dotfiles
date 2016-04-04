@@ -40,6 +40,7 @@
     # Configuration
     econf  = config --global -e
     esconf = config --system -e
+	undo-commit = reset --soft HEAD^
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
     log = true
