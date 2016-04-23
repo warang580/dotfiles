@@ -27,6 +27,7 @@ alias where="which"
 
 # Package install
 alias install="sudo apt-get install"
+alias uninstall="sudo apt-get remove"
 
 # TMUX
 alias tmuxr="tmux attach"
