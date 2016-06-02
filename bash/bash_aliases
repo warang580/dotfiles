@@ -20,7 +20,10 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 # Creating directories
-mkdir="mkdir -p"
+alias mkdir="mkdir -p"
+
+# Clear screen
+alias clear='printf "\033c"'
 
 # Easier to remember
 alias where="which"
