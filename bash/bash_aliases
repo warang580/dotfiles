@@ -18,6 +18,9 @@ alias path='echo $PATH | tr -s ":" "\n"'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
 
 # Creating directories
 alias mkdir="mkdir -p"
@@ -31,6 +34,8 @@ alias where="which"
 # Package install
 alias install="sudo apt-get install"
 alias uninstall="sudo apt-get remove"
+alias update="sudo apt-get update"
+alias upgrade="sudo apt-get upgrade"
 
 # TMUX
 alias tmuxr="tmux attach"
