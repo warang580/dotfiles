@@ -18,6 +18,9 @@ alias path='echo $PATH | tr -s ":" "\n"'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
 
 # Creating directories
 mkdir="mkdir -p"
