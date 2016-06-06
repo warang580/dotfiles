@@ -57,6 +57,15 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Timer
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
+function stopwatch(){
+  date1=`date +%s`;
+   while true; do
+    echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
+    sleep 0.1
+   done
+}
+
+
 # Simple calculator
 function calc() {
     local result="";
