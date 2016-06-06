@@ -1,6 +1,7 @@
 [alias]
     # Repository short status
-    st  = status -sb
+    st = status -sb
+    s  = ! git st
     # Same with updated remotes
     stu = "!f() { git fetch 2> /dev/null; git st; }; f"
 
@@ -10,6 +11,9 @@
     h = ! git history
     # Short log
     lg = log --oneline
+    l  = ! git lg
+    d  = ! git diff
+
 
     # Branches display
     branches = branch -av
@@ -17,17 +21,14 @@
     # Remotes display
     remotes = remote -v
 
-    # Commit
+    # Commit (c "message")
+    c  = !git commit -m
     # Easy add-everything commit (ci "commit msg")
-    ci       = !git commit -m
-    cia      = !git add -A && git commit -m
+    ci = !git add -A && git commit -m
     # Undo previous commit (keep changes in working dir)
     ci-undo  = reset HEAD~1 --mixed
     # Amend last commit (adding changes after commiting, excluding new files)
     ci-amend = commit -a --amend
-
-    # Proper reset (save + clean) of working dir (ex: wipe "PoC not working, deleting work")
-    wipe = "!f() { git add -A && git commit -qm ${1-wipe savepoint} && git reset HEAD~1 --hard; }; f"
 
     # Switch to a branch, creating it if necessary
     b = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
