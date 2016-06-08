@@ -21,12 +21,13 @@
     # Remotes display
     remotes = remote -v
 
+    a = add
     # Commit (c "message")
-    c  = !git commit -m
+    c = ! git commit -m
     # Easy add-everything commit (ci "commit msg")
-    ci = !git add -A && git commit -m
+    ci = ! git add -A && git commit -m
     # Undo previous commit (keep changes in working dir)
-    ci-undo  = reset HEAD~1 --mixed
+    ci-undo = reset HEAD~1 --mixed
     # Amend last commit (adding changes after commiting, excluding new files)
     ci-amend = commit -a --amend
 
