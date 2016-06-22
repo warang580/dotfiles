@@ -171,7 +171,16 @@ git_prompt ()
 {
     c_git_clean="\033[1;37m↯\033[1;00m"
     c_git_changed="\033[1;31m↯\033[1;00m"
+    c_git_diverged="\033[1;33m↯\033[1;00m"
+
+    c_git_action_nothing=""
+    c_git_action_commit=""
+    c_git_action_push=" ↑"
+    c_git_action_pull=" ↓"
+    c_git_action_diverged=" ⚑"
+
     git_status="${c_git_clean}"
+    git_action="${c_git_action_nothing}"
 
     # Checking GIT directory
     git_dir=`git rev-parse --git-dir 2>/dev/null`
@@ -182,7 +191,7 @@ git_prompt ()
     # Git current branch
     #git_branch=`git rev-parse --abbrev-ref HEAD`
     git_branch=`git branch | sed -n '/\* /s///p'`
-    if [ ${#git_branch} -eq 40 ]; then
+    if [ -z "$git_branch" ]; then
         git_branch="(unknown)"
     fi
 
@@ -190,12 +199,36 @@ git_prompt ()
     git_status=`git status --porcelain`
     if [ -z "$git_status" ]; then
         git_status="${c_git_clean}"
+        git_action="${c_git_action_nothing}"
     else
         git_status="${c_git_changed}"
+        git_action="${c_git_action_commit}"
+    fi
+
+    if [ "$git_status" = "${c_git_clean}" ]; then
+        LOCAL=$(git rev-parse @ 2> /dev/null)
+        REMOTE=$(git rev-parse @{u} 2> /dev/null)
+        BASE=$(git merge-base @ @{u} 2> /dev/null)
+
+        if [ ! -z $REMOTE ]; then
+          if [ $LOCAL = $REMOTE ]; then
+              git_status="${c_git_clean}"
+              git_action="${c_git_action_nothing}"
+          elif [ $LOCAL = $BASE ]; then
+              git_status="${c_git_diverged}"
+              git_action="${c_git_action_pull}"
+          elif [ $REMOTE = $BASE ]; then
+              git_status="${c_git_diverged}"
+              git_action="${c_git_action_push}"
+          else
+              git_status="${c_git_diverged}"
+              git_action="${c_git_action_diverged}"
+          fi
+        fi
     fi
 
     # Final output
-    echo -e "$git_status \033[1;30m$git_branch"
+    echo -e "$git_status \033[1;30m$git_branch\033[1;37m$git_action"
 }
 
 # Thy holy prompt.
