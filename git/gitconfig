@@ -1,11 +1,11 @@
 [alias]
-    # Repository short status
+    #> Repository status
     st = status -sb
     s  = ! git st
     # Same with updated remotes
     stu = "!f() { git fetch 2> /dev/null; git st; }; f"
 
-    # Commit history/log
+    #> Commit history/log
     history = !git log --graph --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an> %C(red)%d%Creset' --abbrev-commit
     # Shortcut
     h = ! git history
@@ -14,13 +14,12 @@
     l  = ! git lg
     d  = ! git diff
 
-
-    # Branches display
-    branches = branch -av
-
-    # Remotes display
+    #> Remotes display
     remotes = remote -v
+    r       = ! git remotes
+    u       = ! git fetch --prune -v
 
+    #> Commits
     a = add
     # Commit (c "message")
     c = ! git commit -m
@@ -31,9 +30,11 @@
     # Amend last commit (adding changes after commiting, excluding new files)
     ci-amend = commit -a --amend
 
+    #> Branches
+    # Show all branches
+    branches = branch -av
     # Switch to a branch, creating it if necessary
-    b = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
-
+    b = "!f() { test -z $1 && git branches || (git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"); }; f"
     # Checkout
     co = checkout
 
