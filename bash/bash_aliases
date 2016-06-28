@@ -36,6 +36,7 @@ alias install="sudo apt-get install"
 alias uninstall="sudo apt-get remove"
 alias update="sudo apt-get update"
 alias upgrade="sudo apt-get upgrade"
+alias clean="sudo apt-get autoremove"
 
 # TMUX
 alias tmuxr="tmux attach"
