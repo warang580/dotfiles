@@ -25,8 +25,10 @@
     c = ! git commit -m
     # Easy add-everything commit (ci "commit msg")
     ci = ! git add -A && git commit -m
-    # Undo previous commit (keep changes in working dir)
+    # Undo previous commit (changes are put back in working dir, not addded)
     ci-undo = reset HEAD~1 --mixed
+    # Undo previous commit (changes are still added)
+    undo-commit = reset --soft HEAD^
     # Amend last commit (adding changes after commiting, excluding new files)
     ci-amend = commit -a --amend
 
@@ -44,7 +46,6 @@
     # Configuration
     econf  = config --global -e
     esconf = config --system -e
-	undo-commit = reset --soft HEAD^
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
     log = true
