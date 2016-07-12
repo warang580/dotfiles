@@ -169,11 +169,12 @@ bg_reset="\[\033[7;00m\]"
 
 git_prompt ()
 {
-    c_git_clean="\033[1;37m↯\033[1;00m"
-    c_git_changed="\033[31m↯\033[1;00m"
-    c_git_push="\033[33m↯\033[1;00m"
-    c_git_pull="\033[1;30m↯\033[1;00m"
-    c_git_diverged="\033[1;35m↯\033[1;00m"
+    c_repo_icon="↯"
+    c_git_clean="\033[1;37m${c_repo_icon}\033[1;00m"
+    c_git_changed="\033[31m${c_repo_icon}\033[1;00m"
+    c_git_push="\033[33m${c_repo_icon}\033[1;00m"
+    c_git_pull="\033[1;30m${c_repo_icon}\033[1;00m"
+    c_git_diverged="\033[1;35m${c_repo_icon}\033[1;00m"
 
     c_git_action_nothing=""
     c_git_action_commit=""
@@ -234,12 +235,12 @@ git_prompt ()
     fi
 
     # Final output
-    echo -e "$git_status \033[1;30m$git_branch\033[1;37m$git_action"
+    echo -e "$git_status \033[1;30m\033[4;30m$git_branch\033[4;00m\033[1;37m$git_action"
 }
 
 # Thy holy prompt.
 PS1="$reset[$magenta\t$reset] $h_green\u@$u_green\h$u_reset$white: $h_blue\w $black\$(git_prompt)\n$white$ $reset"
-PS2="$white↳ $reset"
+PS2="$h_white↳ $reset"
 
 export EDITOR=vim
 export VISUAL=subl
