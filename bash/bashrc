@@ -215,9 +215,10 @@ git_prompt ()
 
     if [ "$git_status" = "${c_git_clean}" ]; then
         LOCAL=$(git rev-parse @{0} 2> /dev/null)
-        REMOTE=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2> /dev/null)
+        REMOTE=$(git rev-parse @{u} 2> /dev/null)
+        UPSTREAM=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2> /dev/null)
 
-        if [ "$REMOTE" != "@{u}" ]; then
+        if [ "$UPSTREAM" != "@{u}" ]; then
           BASE=$(git merge-base @{0} @{u} 2> /dev/null)
 
           if [ "$LOCAL" = "$REMOTE" ]; then
