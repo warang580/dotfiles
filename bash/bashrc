@@ -171,7 +171,9 @@ git_prompt ()
 {
     c_git_clean="\033[1;37m↯\033[1;00m"
     c_git_changed="\033[31m↯\033[1;00m"
-    c_git_diverged="\033[33m↯\033[1;00m"
+    c_git_push="\033[33m↯\033[1;00m"
+    c_git_pull="\033[1;30m↯\033[1;00m"
+    c_git_diverged="\033[1;35m↯\033[1;00m"
 
     c_git_action_nothing=""
     c_git_action_commit=""
@@ -219,10 +221,10 @@ git_prompt ()
               git_status="${c_git_clean}"
               git_action="${c_git_action_nothing}"
           elif [ $LOCAL = $BASE ]; then
-              git_status="${c_git_diverged}"
+              git_status="${c_git_pull}"
               git_action="${c_git_action_pull}"
           elif [ $REMOTE = $BASE ]; then
-              git_status="${c_git_diverged}"
+              git_status="${c_git_push}"
               git_action="${c_git_action_push}"
           else
               git_status="${c_git_diverged}"
