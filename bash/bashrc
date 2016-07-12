@@ -170,6 +170,7 @@ bg_reset="\[\033[7;00m\]"
 git_prompt ()
 {
     c_repo_icon="↯"
+    c_repo_icon="ϟ"
     c_git_clean="\033[1;37m${c_repo_icon}\033[1;00m"
     c_git_changed="\033[31m${c_repo_icon}\033[1;00m"
     c_git_push="\033[33m${c_repo_icon}\033[1;00m"
