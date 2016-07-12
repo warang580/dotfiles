@@ -215,23 +215,26 @@ git_prompt ()
 
     if [ "$git_status" = "${c_git_clean}" ]; then
         LOCAL=$(git rev-parse @{0} 2> /dev/null)
-        REMOTE=$(git rev-parse @{u} 2> /dev/null)
-        BASE=$(git merge-base @{0} @{u} 2> /dev/null)
+        REMOTE=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2> /dev/null)
 
-        if [ ! -z $REMOTE ]; then
-          if [ $LOCAL = $REMOTE ]; then
+        if [ "$REMOTE" != "@{u}" ]; then
+          BASE=$(git merge-base @{0} @{u} 2> /dev/null)
+
+          if [ "$LOCAL" = "$REMOTE" ]; then
               git_status="${c_git_clean}"
               git_action="${c_git_action_nothing}"
-          elif [ $LOCAL = $BASE ]; then
+          elif [ "$LOCAL" = "$BASE" ]; then
               git_status="${c_git_pull}"
               git_action="${c_git_action_pull}"
-          elif [ $REMOTE = $BASE ]; then
+          elif [ "$REMOTE" = "$BASE" ]; then
               git_status="${c_git_push}"
               git_action="${c_git_action_push}"
           else
               git_status="${c_git_diverged}"
               git_action="${c_git_action_diverged}"
           fi
+        else
+            git_branch="$git_branch~"
         fi
     fi
 
