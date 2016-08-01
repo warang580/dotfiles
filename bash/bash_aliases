@@ -47,6 +47,9 @@ alias g="git"
 # Vim shortcut
 alias v="vim"
 
+# Gulp shortcut
+alias t="gulp test"
+
 # Misc
 
 # IP
