@@ -21,6 +21,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias .......="cd ../../../../../.."
+# - <=> cd $OLDPWD (previous directory)
+alias -- -="cd -"
 
 # Creating directories
 alias mkdir="mkdir -p"
