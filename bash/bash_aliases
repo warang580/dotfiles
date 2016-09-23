@@ -24,9 +24,9 @@ alias .......="cd ../../../../../.."
 # - <=> cd $OLDPWD (previous directory)
 alias -- -="cd -"
 
-function cd {
-  builtin cd "$@" && clear && ls -F
-}
+# function cd {
+#   builtin cd "$@" && clear && ls -F
+# }
 
 # Creating directories
 alias mkdir="mkdir -p"
