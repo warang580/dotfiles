@@ -3,7 +3,7 @@
     st = status -sb
     s  = ! git st
     # Same with updated remotes
-    stu = "!f() { git fetch 2> /dev/null; git st; }; f"
+    su = "!f() { git fetch 2> /dev/null; git st; }; f"
 
     #> Commit history/log
     history = !git log --graph --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an> %C(red)%d%Creset' --abbrev-commit
@@ -23,14 +23,18 @@
     a = add
     # Commit (c "message")
     c = ! git commit -m
-    # Easy add-everything commit (ci "commit msg")
+    # Easy add-everything commit (ci "<msg>")
     ci = ! git add -A && git commit -m
-    # Undo previous commit (changes are put back in working dir, not addded)
+    # Undo previous commit (changes are put back in working dir, not added)
     ci-undo = reset HEAD~1 --mixed
     # Undo previous commit (changes are still added)
     undo-commit = reset --soft HEAD^
     # Amend last commit (adding changes after commiting, excluding new files)
     ci-amend = commit -a --amend
+
+    #> Pull / Push
+    # Get latest updates and push changes if no conflicts
+    pp = ! git pull && git push
 
     #> Branches
     # Show all branches
