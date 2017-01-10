@@ -33,6 +33,8 @@
     ci-amend = commit -a --amend
 
     #> Pull / Push
+		# Just pull
+		p = pull
     # Get latest updates and push changes if no conflicts
     pp = ! git pull && git push
 
