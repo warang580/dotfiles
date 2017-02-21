@@ -25,6 +25,8 @@
     c = ! git commit -m
     # Easy add-everything commit (ci "<msg>")
     ci = ! git add -A && git commit -m
+    # Add everything and push immediately
+    cip = "!f() { git add -A && git commit -m \"$1\" && git pp; }; f"
     # Undo previous commit (changes are put back in working dir, not added)
     ci-undo = reset HEAD~1 --mixed
     # Undo previous commit (changes are still added)
