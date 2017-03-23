@@ -73,6 +73,20 @@ alias timestamp="date +%Y%m%d%H%M%S"
 # Notify end of command
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+_beep() {
+	( \speaker-test --frequency ${1:-440} --test sine ) &
+	pid=$!
+	\sleep 0.${2:-200}s
+	\kill -9 $pid
+}
+
+# Beep <freq> <duration:ms>
+beep() {
+	(_beep $1 $2) > /dev/null
+}
+
+alias pulse='beep 2000; beep 400'
+
 # Timer
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
@@ -83,7 +97,6 @@ function stopwatch(){
     sleep 0.1
    done
 }
-
 
 # Simple calculator
 function calc() {
