@@ -62,6 +62,9 @@ alias v="vim"
 # Gulp shortcut
 alias t="gulp test"
 
+# Php artisan shortcut
+alias a="php artisan"
+
 # Misc
 
 # IP
