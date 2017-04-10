@@ -36,9 +36,9 @@
 
     #> Pull / Push
 		# Just pull
-		p = pull
+		p = pull --rebase
     # Get latest updates and push changes if no conflicts
-    pp = ! git pull && git push
+    pp = ! git pull --rebase & git push && git s
 
     #> Branches
     # Show all branches
