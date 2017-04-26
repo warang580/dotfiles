@@ -40,6 +40,10 @@
     # Get latest updates and push changes if no conflicts
     pp = ! git pull --rebase & git push && git s
 
+    # Saves / Loads (with stash)
+		save = stash
+		load = stash pop
+
     #> Branches
     # Show all branches
     branches = branch -av
