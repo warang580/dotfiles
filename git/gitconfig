@@ -46,7 +46,7 @@
 
     #> Branches
     # Show all branches
-    branches = branch -av
+    branches = branch -avv
     # Switch to a branch, creating it if necessary
     b = "!f() { test -z $1 && git branches || (git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"); }; f"
     # Checkout
