@@ -152,7 +152,7 @@ shopt -s globstar
 CDPATH=~:~/Code
 
 # Composer bin
-PATH=.:vendor/bin:~/.composer/vendor/bin:$PATH
+PATH=.:~/.config/composer/vendor/bin:vendor/bin:~/.composer/vendor/bin:$PATH
 
 # Colors
 black="\[\033[30m\]"
