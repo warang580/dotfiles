@@ -60,7 +60,8 @@ alias g="git"
 alias v="vim"
 
 # Gulp shortcut
-alias t="gulp test"
+alias t="phpunit"
+alias tf="phpunit --filter"
 
 # Php artisan shortcut
 alias a="php artisan"
