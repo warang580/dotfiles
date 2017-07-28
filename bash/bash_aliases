@@ -66,6 +66,9 @@ alias tf="phpunit --filter"
 # Php artisan shortcut
 alias a="php artisan"
 
+# Laravel show logs shortcut
+alias logs="less +G storage/logs/laravel.log"
+
 # Misc
 
 # IP
@@ -73,6 +76,9 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # Timestamp
 alias timestamp="date +%Y%m%d%H%M%S"
+
+# Meteo
+alias meteo="curl -4 http://wttr.in/$1"
 
 # Notify end of command
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
