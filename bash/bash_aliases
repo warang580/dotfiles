@@ -46,6 +46,7 @@ alias where="which"
 # Package install
 alias install="sudo apt-get install"
 alias uninstall="sudo apt-get remove"
+alias search="sudo apt-cache search"
 alias update="sudo apt-get update"
 alias upgrade="sudo apt-get upgrade"
 alias clean="sudo apt-get autoremove"
