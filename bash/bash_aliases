@@ -69,6 +69,7 @@ alias a="php artisan"
 
 # Laravel show logs shortcut
 alias logs="less +G storage/logs/laravel.log"
+alias clearlogs="echo \"\" > storage/logs/laravel.log"
 
 # Misc
 
