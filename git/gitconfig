@@ -14,6 +14,10 @@
     l  = ! git lg
     d  = ! git diff
 
+    #> date of latest pull (even if no changes)
+    when = "!f() { echo -n "Last pull:"; stat -c %y .git/FETCH_HEAD | date +' %d %h %Y %H:%M' -f -; }; f"
+    w = ! git when
+
     #> Remotes display
     remotes = remote -v
     r       = ! git remotes
@@ -34,21 +38,22 @@
     # Amend last commit (adding changes after commiting, excluding new files)
     ci-amend = commit -a --amend
 
-    #> Pull / Push
-		# Just pull
-		p = pull --rebase
+    #> Pull / Push (rebasing by default)
+	# Just pull
+	p = pull --rebase
     # Get latest updates and push changes if no conflicts
-    pp = ! git pull --rebase & git push && git s
+    pp = ! git pull --rebase && git push && git s
 
     # Saves / Loads (with stash)
-		save = stash
-		load = stash pop
+	save = stash
+	load = stash pop
 
     #> Branches
     # Show all branches
     branches = branch -avv
     # Switch to a branch, creating it if necessary
     b = "!f() { test -z $1 && git branches || (git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"); }; f"
+	bd = "!f() { git branch -d $1; }; f"
     # Checkout
     co = checkout
 
