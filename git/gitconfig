@@ -6,11 +6,11 @@
     su = "!f() { git fetch 2> /dev/null; git st; }; f"
 
     #> Commit history/log
-    history = !git log --graph --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an> %C(red)%d%Creset' --abbrev-commit
+    history = !git log --graph --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an> %C(bold yellow)%d%Creset' --abbrev-commit
     # Shortcut
     h = ! git history
     # Short log
-    lg = log --oneline
+    lg = ! git log --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h %Cgreen%ad (%cr)%C(bold yellow)%d%n%C(bold blue)<%an> %Creset%s%n%Creset'
     l  = ! git lg
     d  = ! git diff
 
@@ -18,10 +18,17 @@
     when = "!f() { echo -n "Last pull:"; stat -c %y .git/FETCH_HEAD | date +' %d %h %Y %H:%M' -f -; }; f"
     w = ! git when
 
+    #> Find a specific commit by name search find "something"
+    find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
+
     #> Remotes display
     remotes = remote -v
     r       = ! git remotes
-    u       = ! git fetch --prune -v
+    u       = ! git fetch -pv
+
+    #> Tags display
+    tags = ! git log --no-walk --tags --date-order --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%Cgreen%ad%C(bold yellow)%d %C(bold blue)%aN %Creset%Cgreen(%cr)%Creset'
+    t = ! git tags
 
     #> Commits
     a = add
@@ -57,8 +64,10 @@
     # Checkout
     co = checkout
 
+    nope = ! git checkout -- .
+
     # Display contributions
-    contributions = shortlog --summary --numbered
+    contributions = shortlog -sn --no-merges
 
     # Configuration
     econf  = config --global -e
@@ -67,8 +76,9 @@
     # Include summaries of merged commits in newly created merge commit messages
     log = true
 [push]
-    # Push to upstream by default
-    default = upstream
+    # Push to matching #upstream# by default
+    default = matching
+	followTags = true
 [color]
     # Enable colors
     ui = true
