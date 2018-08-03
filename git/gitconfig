@@ -18,8 +18,8 @@
     when = "!f() { echo -n "Last pull:"; stat -c %y .git/FETCH_HEAD | date +' %d %h %Y %H:%M' -f -; }; f"
     w = ! git when
 
-    #> Find a specific commit by name search find "something"
-    find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
+    #> Search for commits that contains $arg
+    search = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
 
     #> Remotes display
     remotes = remote -v
@@ -68,6 +68,10 @@
 
     # Display contributions
     contributions = shortlog -sn --no-merges
+
+    # Git flow shortcuts
+    release = flow release
+    feature = flow feature
 
     # Configuration
     econf  = config --global -e
