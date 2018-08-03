@@ -3,6 +3,7 @@
     "~/.dotfiles": ""
     "~/.fonts/meslo": "fonts/meslo"
     "~/.fonts/inconsolata": "fonts/inconsolata"
+    "~/.fonts/firacode": "fonts/firacode"
     "~/.fonts/fixedsys": "fonts/fixedsys"
     "~/.fonts/input": "fonts/input"
     "~/.vimrc": "vim/vimrc"
