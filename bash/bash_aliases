@@ -69,10 +69,15 @@ alias tf="phpunit --filter"
 
 # Php artisan shortcut
 alias a="php artisan"
+alias tinker="php artisan tinker"
 
 # Laravel show logs shortcut
-alias logs="less +G storage/logs/laravel.log"
-alias clearlogs="echo \"\" > storage/logs/laravel.log"
+function logs {
+    less +G `ls -Art storage/logs/laravel-* | tail -n 1`;
+}
+function clearlogs {
+    echo "" > `ls -Art storage/logs/laravel-* | tail -n 1`
+}
 
 # Misc
 
