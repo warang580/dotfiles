@@ -93,12 +93,6 @@
 [credential]
     # Remember credentials
     helper = cache --timeout=3600
-[user]
-    name  = Sacha WILT
-    email = sacha.wilt@gmail.com
-[credential "https://github.com"]
-    # My default username
-    username = warang580
 [include]
     # Allow overriding
     path = ~/.gitconfig.local
