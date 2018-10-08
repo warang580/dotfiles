@@ -271,9 +271,6 @@ git_prompt ()
 PS1="$reset[$magenta\A$reset] $h_green\u@$u_green\h$u_reset$white: $h_blue\w $black\$(git_prompt)\n$white\$ $reset"
 PS2="$h_white↳ $reset"
 
-export EDITOR=vim
-export VISUAL=micro
-
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
