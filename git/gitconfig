@@ -27,7 +27,7 @@
     u       = ! git fetch -pv
 
     #> Tags display
-    tags = ! git log --no-walk --tags --date-order --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%Cgreen%ad%C(bold yellow)%d %C(bold blue)%aN %Creset%Cgreen(%cr)%Creset'
+    tags = ! git log -30 --no-walk --tags --date-order --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%Cgreen%ad%C(bold yellow)%d %C(bold blue)%aN %Creset%Cgreen(%cr)%Creset'
     t = ! git tags
 
     #> Commits
