@@ -27,7 +27,7 @@
     u       = ! git fetch -pv
 
     #> Tags display
-    tags = ! git log -30 --no-walk --tags --date-order --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%Cgreen%ad%C(bold yellow)%d %C(bold blue)%aN %Creset%Cgreen(%cr)%Creset'
+    tags = ! git log -10 --no-walk --tags --date-order --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%Cgreen%ad%C(bold yellow)%d %C(bold blue)%aN %Creset%Cgreen(%cr)%Creset'
     t = ! git tags
 
     #> Commits
@@ -45,11 +45,11 @@
     # Amend last commit (adding changes after commiting, excluding new files)
     ci-amend = commit -a --amend
 
-    #> Pull / Push (rebasing by default)
+    #> Pull / Push
 	# Just pull
-	p = pull --rebase
+	p = pull
     # Get latest updates and push changes if no conflicts
-    pp = ! git pull --rebase && git push && git s
+    pp = ! git pull && git push && git s
 
     # Saves / Loads (with stash)
 	save = stash
@@ -73,6 +73,9 @@
     # Git flow shortcuts
     release = flow release
     feature = flow feature
+
+    rs = flow release start
+    rf = flow release finish
 
     # Configuration
     econf  = config --global -e
