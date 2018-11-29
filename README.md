@@ -1,3 +1,3 @@
 # ~/.files
 
-This repository contains my configuration files and uses [Dotbot][dotbot] to install them.
+This repository contains my configuration files and uses [Dotbot][https://git.io/dotbot] to install them.
