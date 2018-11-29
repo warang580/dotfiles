@@ -13,5 +13,7 @@
     "~/.bash_aliases": "bash/bash_aliases"
     "~/.bashrc": "bash/bashrc"
     "~/.wgetrc": "wget/wgetrc"
+    "~/.atom/keymap.cson": "atom/keymap.cson"
+    "~/.atom/styles.less": "atom/styles.less"
 - shell:
   - source ~/.bashrc

@@ -1,0 +1,11 @@
+'atom-text-editor':
+    'ctrl-shift-up':   'editor:move-line-up'
+    'ctrl-shift-down': 'editor:move-line-down'
+    'ctrl-shift-J':    'grammar-selector:show'
+    'ctrl-shift-L':    'editor:split-selections-into-lines'
+    'ctrl-E':          'emmet:expand-abbreviation'
+
+'atom-workspace atom-text-editor':
+    'ctrl-backspace': 'editor:delete-to-previous-word-boundary'
+    'ctrl-delete':    'editor:delete-to-next-word-boundary'
+
