@@ -77,11 +77,14 @@ alias tinker="php artisan tinker"
 # Laravel show logs shortcut
 alias log="less +G storage/logs/laravel.log"
 alias clearlog="echo "" > storage/logs/laravel.log"
+function lastlog {
+    echo `ls -Art storage/logs/laravel-* | tail -n 1`
+}
 function logs {
-    less +G `ls -Art storage/logs/laravel-* | tail -n 1`;
+    less +G `lastlog`;
 }
 function clearlogs {
-    echo "" > `ls -Art storage/logs/laravel-* | tail -n 1`
+    echo "" > `lastlog`
 }
 
 # Misc
