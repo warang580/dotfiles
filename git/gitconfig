@@ -1,7 +1,8 @@
+
 [alias]
     #> Repository status
-    st = status -sb
-    s  = ! git st
+    st = status
+    s = status -sb
     # Same with updated remotes
     su = "!f() { git fetch 2> /dev/null; git st; }; f"
 
