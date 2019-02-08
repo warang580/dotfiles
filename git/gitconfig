@@ -74,9 +74,13 @@
     # Git flow shortcuts
     release = flow release
     feature = flow feature
+    hotfix = flow feature
 
     rs = flow release start
     rf = flow release finish
+
+    hs = flow hotfix start
+    hf = flow hotfix finish
 
     # Configuration
     econf  = config --global -e
