@@ -83,6 +83,9 @@ function lastlog {
 function logs {
     less +G `lastlog`;
 }
+function listenlogs {
+    tail -fn0 `lastlog`;
+}
 function clearlogs {
     echo "" > `lastlog`
 }
