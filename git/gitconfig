@@ -20,7 +20,7 @@
     w = ! git when
 
     #> Search for commits that contains $arg
-    search = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
+    search = log --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h %C(bold blue)<%an> %Creset%s%n%Cgreen%ad (%cr)%C(bold yellow)%d' --name-status --grep
 
     #> Remotes display
     remotes = remote -v
@@ -28,7 +28,7 @@
     u       = ! git fetch -pv
 
     #> Tags display
-    tags = ! git log -10 --no-walk --tags --date-order --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%Cgreen%ad%C(bold yellow)%d %C(bold blue)%aN %Creset%Cgreen(%cr)%Creset'
+    tags = ! git log -10 --no-walk --tags --date-order --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%Cgreen%ad%C(bold yellow)%d %C(bold blue)%aN %Creset%Cgreen(%cr)'
     t = ! git tags
 
     #> Commits
@@ -39,10 +39,10 @@
     ci = ! git add -A && git commit -m
     # Add everything and push immediately
     cip = "!f() { git add -A && git commit -m \"$1\" && git pp; }; f"
-    # Undo previous commit (changes are put back in working dir, not added)
-    ci-undo = reset HEAD~1 --mixed
     # Undo previous commit (changes are still added)
-    undo-commit = reset --soft HEAD^
+    ci-undo = reset --soft HEAD^
+    # Undo previous commit (changes are put back in working dir, not added)
+    ci-reset = reset HEAD~1 --mixed
     # Amend last commit (adding changes after commiting, excluding new files)
     ci-amend = commit -a --amend
 
@@ -75,6 +75,10 @@
     release = flow release
     feature = flow feature
     hotfix = flow feature
+
+    fs = flow feature start
+    ff = flow feature finish
+    fp = flow feature publish
 
     rs = flow release start
     rf = flow release finish
