@@ -1,0 +1,6 @@
+{
+	"Escape": "Quit",
+
+	"CtrlUp": "MoveLinesUp",
+	"CtrlDown": "MoveLinesDown",
+}

@@ -15,5 +15,7 @@
     "~/.wgetrc": "wget/wgetrc"
     "~/.atom/keymap.cson": "atom/keymap.cson"
     "~/.atom/styles.less": "atom/styles.less"
+    "~/.config/micro/bindings.json": "micro/bindings.json"
+    "~/.config/micro/settings.json": "micro/settings.json"
 - shell:
   - source ~/.bashrc
