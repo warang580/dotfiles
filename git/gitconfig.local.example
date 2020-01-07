@@ -1,0 +1,5 @@
+[user]
+    name  = John Doe
+    email = john.doe@mail.com
+[credential "https://github.com"]
+    username = jdoe
