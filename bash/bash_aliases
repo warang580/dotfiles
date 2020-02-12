@@ -92,6 +92,14 @@ function clearlogs {
 
 # Misc
 
+# Set terminal title (at least in gnome-terminal)
+termtitle() {
+    # take arguments
+    TITLE=$*
+    # update title
+    PROMPT_COMMAND='echo -ne "\033]0; $TITLE \007"'
+}
+
 # IP
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
