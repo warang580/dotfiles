@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#!/usr/bin/env bash
+function ask_confirmation() {
+    read -p "$1 [yN] "
+    case $(echo $REPLY | tr '[A-Z]' '[a-z]') in
+        y|yes) return 0 ;;
+        *)     return 1 ;;
+    esac
+    return 2;
+}
+
+ask_confirmation "$1"

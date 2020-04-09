@@ -60,8 +60,8 @@
     # Show all branches
     branches = branch -avv
     # Switch to a branch, creating it if necessary
-    b = "!f() { test -z $1 && git branches || (git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"); }; f"
-	bd = "!f() { git branch -d $1; }; f"
+    b   = "!f() { test -z $1 && git branches || (git rev-parse --verify \"$1\" 1> /dev/null 2> /dev/null && git checkout \"$1\" || (confirm \"Create a branch '$1' ?\" && git checkout -b \"$1\" 2> /dev/null || echo "Aborting.")); }; f"
+    bd  = "!f() { git branch -d $1; }; f"
     bdd = "!f() { git branch -D $1; }; f"
     # Checkout
     co = checkout

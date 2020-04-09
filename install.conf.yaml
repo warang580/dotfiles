@@ -19,3 +19,4 @@
     "~/.config/micro/settings.json": "micro/settings.json"
 - shell:
   - source ~/.bashrc
+  - sudo cp bin/confirm /usr/local/bin && sudo chmod +x /usr/local/bin/confirm
