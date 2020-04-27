@@ -12,6 +12,8 @@
     h = ! git history
     # Short log
     lg = ! git log --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h %Cgreen%ad (%cr)%C(bold yellow)%d%n%C(bold blue)<%an> %Creset%s%n%Creset'
+    # Done by me
+    done = ! git lg --since=1.days --author=\"$(git config user.name)\" --no-merges
     l  = ! git lg
     d  = ! git diff
 
