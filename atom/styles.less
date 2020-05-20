@@ -1,10 +1,40 @@
-@ui-font-size: 1.5em;
+// Editor
+
+@bolder: 500;
+@lighter: 400;
+
+atom-text-editor.editor,
+.results-view-container .preview,
+.results-view-container .highlight-info {
+    font-weight: @bolder;
+}
+
+atom-text-editor.editor .syntax--punctuation {
+    font-weight: @lighter;
+}
+
+atom-text-editor.editor .syntax--comment {
+    font-weight: @lighter;
+}
+
+// Tree view in sidebar
 
 .tree-view {
-  font-size: @ui-font-size;
+  font-size: 1.2em;
 }
+
+.tree-view .name {
+    font-weight: @bolder;
+}
+
+.tree-view .status-ignored .name {
+    font-style: italic;
+    font-weight: normal;
+}
+
+// Tabs
 
 .tab-bar {
-  font-size: @ui-font-size;
+  font-size: 1.3em;
+  font-weight: @bolder;
 }
-
