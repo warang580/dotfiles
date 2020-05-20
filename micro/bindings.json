@@ -1,6 +1,6 @@
 {
-	"Escape": "Quit",
-
-	"CtrlUp": "MoveLinesUp",
-	"CtrlDown": "MoveLinesDown",
+    "Alt-/": "lua:comment.comment",
+    "CtrlDown": "MoveLinesDown",
+    "CtrlUp": "MoveLinesUp",
+    "Escape": "Quit"
 }
