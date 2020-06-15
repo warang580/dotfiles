@@ -4,7 +4,7 @@
     st = status
     s = status -sb
     # Same with updated remotes
-    su = "!f() { git fetch 2> /dev/null; git st; }; f"
+    su = "!f() { git f 2> /dev/null; git st; }; f"
 
     #> Commit history/log
     history = !git log --graph --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an> %C(bold yellow)%d%Creset' --abbrev-commit
@@ -27,7 +27,10 @@
     #> Remotes display
     remotes = remote -v
     r       = ! git remotes
-    u       = ! git fetch -pv
+
+    #> Fetch/Update
+    f = ! git fetch -pv
+    u = ! git f
 
     #> Tags display
     tags = ! git log -10 --no-walk --tags --date-order --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%Cgreen%ad%C(bold yellow)%d %C(bold blue)%aN %Creset%Cgreen(%cr)'
@@ -62,7 +65,7 @@
     # Show all branches
     branches = branch -avv
     # Switch to a branch, creating it if necessary
-    b   = "!f() { test -z $1 && git branches || (git rev-parse --verify \"$1\" 1> /dev/null 2> /dev/null && git checkout \"$1\" || (confirm \"Create a branch '$1' ?\" && git checkout -b \"$1\" 2> /dev/null || echo "Aborting.")); }; f"
+    b   = "!f() { test -z $1 && git branches || (git diff --quiet && (git rev-parse --verify \"$1\" 1> /dev/null 2> /dev/null && git checkout \"$1\" || (confirm \"Create a branch '$1' ?\" && git checkout -b \"$1\" 2> /dev/null || echo "Aborting.")) || echo "Your current branch contains unsaved changes, aborting."); }; f"
     bd  = "!f() { git branch -d $1; }; f"
     bdd = "!f() { git branch -D $1; }; f"
     # Checkout
