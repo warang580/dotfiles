@@ -1,7 +1,14 @@
 // Editor
 
-@bolder: 500;
-@lighter: 400;
+@bolder: normal;
+@lighter: normal;
+// @bolder: 500;
+// @lighter: 400;
+
+// @TEMP: might go into syntax theme
+atom-text-editor-minimap {
+    // background-color: #f8f8f8;
+}
 
 atom-text-editor.editor,
 .results-view-container .preview,
@@ -35,6 +42,17 @@ atom-text-editor.editor .syntax--comment {
 // Tabs
 
 .tab-bar {
-  font-size: 1.3em;
-  font-weight: @bolder;
+    font-size: 1.3em;
+    font-weight: @bolder;
+}
+
+// Search files
+
+.results-view-container .path-row {
+    background-color: #f5f8ff;
+    font-style: italic;
+}
+
+.results-view-container .list-item.selected::before {
+    background-color: transparent;
 }
