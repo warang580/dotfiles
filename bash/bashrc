@@ -227,13 +227,13 @@ git_prompt ()
 
     # Git current branch
     #git_branch=`git rev-parse --abbrev-ref HEAD`
-    git_branch=`git branch | sed -n '/\* /s///p'`
+    git_branch=`git branch 2>/dev/null | sed -n '/\* /s///p'`
     if [ -z "$git_branch" ]; then
         git_branch="(unknown)"
     fi
 
     # Git status
-    git_status=`git status --porcelain`
+    git_status=`git status --porcelain 2>/dev/null`
     if [ -z "$git_status" ]; then
         git_status="${c_git_clean}"
         git_action="${c_git_action_nothing}"
