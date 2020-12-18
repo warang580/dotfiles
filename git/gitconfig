@@ -68,6 +68,7 @@
     b   = "!f() { test -z $1 && git branches || (git diff --quiet && (git rev-parse --verify \"$1\" 1> /dev/null 2> /dev/null && git checkout \"$1\" || (confirm \"Create a branch '$1' ?\" && git checkout -b \"$1\" 2> /dev/null || echo "Aborting.")) || echo "Your current branch contains unsaved changes, aborting."); }; f"
     bd  = "!f() { git branch -d $1; }; f"
     bdd = "!f() { git branch -D $1; }; f"
+    bclear = "!f() { git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done; }; f"
     # Checkout
     co = checkout
 
