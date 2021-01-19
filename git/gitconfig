@@ -11,11 +11,14 @@
     # Shortcut
     h = ! git history
     # Short log
-    lg = ! git log --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h %Cgreen%ad (%cr)%C(bold yellow)%d%n%C(bold blue)<%an> %Creset%s%n%Creset'
-    # Done by me
+    lg = ! git log --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h %Cgreen%ad (%cr)%C(bold yellow)%d%n%C(bold blue)<%an> %Creset%s%n%Creset' --decorate
+    # Done by me lately
     done = ! git lg --since=5.days --author=\"$(git config user.name)\" --no-merges
     l  = ! git lg
     d  = ! git diff
+    # Done on a certain day
+    ld = "!f() { git l --after=\"$1 0:00\" --before=\"$1 23:59\"; }; f"
+
 
     #> date of latest pull (even if no changes)
     when = "!f() { echo -n "Last pull:"; stat -c %y .git/FETCH_HEAD | date +' %d %h %Y %H:%M' -f -; }; f"
