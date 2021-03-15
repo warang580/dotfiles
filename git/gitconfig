@@ -11,13 +11,14 @@
     # Shortcut
     h = ! git history
     # Short log
-    lg = ! git log --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h %Cgreen%ad (%cr)%C(bold yellow)%d%n%C(bold blue)<%an> %Creset%s%n%Creset' --decorate
-    # Done by me lately
-    done = ! git lg --since=5.days --author=\"$(git config user.name)\" --no-merges
+    lg = ! git log --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(yellow)%h %Cgreen%ad (%cr)%C(bold yellow)%d%n%C(bold blue)<%an> %Creset%s%n%Creset' --decorate --no-merges
     l  = ! git lg
     d  = ! git diff
     # Done on a certain day
     ld = "!f() { git l --after=\"$1 0:00\" --before=\"$1 23:59\"; }; f"
+    date = ! git ld
+    # Done by me lately
+    done = ! git l --since=5.days --author=\"$(git config user.name)\"
 
 
     #> date of latest pull (even if no changes)
@@ -65,10 +66,13 @@
 	load = stash pop
 
     #> Branches
-    # Show all branches
-    branches = branch -avv
+    # Show all local branches
+    branches = branch -vv
     # Switch to a branch, creating it if necessary
     b   = "!f() { test -z $1 && git branches || (git diff --quiet && (git rev-parse --verify \"$1\" 1> /dev/null 2> /dev/null && git checkout \"$1\" || (confirm \"Create a branch '$1' ?\" && git checkout -b \"$1\" 2> /dev/null || echo "Aborting.")) || echo "Your current branch contains unsaved changes, aborting."); }; f"
+    # Show all branches (even remotes)
+    br  = branch -avv
+    # Deleting branches
     bd  = "!f() { git branch -d $1; }; f"
     bdd = "!f() { git branch -D $1; }; f"
     bclear = "!f() { git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done; }; f"
